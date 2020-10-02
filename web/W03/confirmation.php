@@ -31,7 +31,7 @@
             </ul>
         </div>
         <div>
-            <?php echo "Address: " . $address1 . " " . $address2 . "<br>" . $city . ", " . $state . " " . $zip . "<br>" . $country; ?>
+            <?php echo "Address: <br>" . $address1 . " " . $address2 . "<br>" . $city . ", " . $state . " " . $zip . "<br>" . $country; ?>
         </div>
     </div>
 </body>
