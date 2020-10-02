@@ -32,10 +32,11 @@ h1 {
 }
 
 #labelDiv label {
+    width: 125px;
     padding-top: 6px;
 }
 
-#formDiv input {
+#formDiv input, #checkoutFormDiv input {
     margin-top: 4px;
 }
 
@@ -45,7 +46,7 @@ h1 {
 }
 
 @media (max-width: 600px) {
-    #formLabelDiv, h1 {
+    #formLabelDiv, #checkoutInfoDiv, #viewCartDiv, h1 {
         max-width: 100%;
     }
 
