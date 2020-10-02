@@ -1,0 +1,48 @@
+body {
+    font-size: 1.5em;
+}
+
+.row {
+    text-align: center;
+}
+
+#HeaderRow {
+    background-color: peru;
+}
+
+#IntroSentence {
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+#IntroParagraph {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 7%;
+}
+
+#ProfileRow {
+    background-color: wheat;
+    height: fit-content;
+}
+
+#ProfilePicDiv {
+    width: 50%;
+    display: inline-block;
+}
+
+#ProfilePic {
+    width: 100%;
+}
+
+@media (max-width: 650px) {
+    #ProfilePicDiv {
+        width: 100%;
+    }
+
+    #IntroParagraph {
+        padding-top: 0%;
+        width: 100%;
+    }
+}
