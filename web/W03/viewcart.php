@@ -18,11 +18,17 @@
                 <label for="joesInput">Joes</label>
             </div>
             <div id="formDiv">
-                <form action="checkout.php">
-                    <input type="number" min="0" id="toesInput" name="toes" class="numberInput" placeholder="0" value="<?php echo $_GET['toes']; ?>"><br>
-                    <input type="number" min="0" id="noseInput" name="nose" class="numberInput" placeholder="0" value="<?php echo $_GET['nose']; ?>"><br>
-                    <input type="number" min="0" id="foesInput" name="foes" class="numberInput" placeholder="0"><br>
-                    <input type="number" min="0" id="joesInput" name="joes" class="numberInput" placeholder="0">
+                <form action="checkout.php" method="POST">
+                    <?php 
+                        $toes = htmlspecialchars($_POST["toes"]);
+                        $nose = htmlspecialchars($_POST["nose"]);
+                        $foes = htmlspecialchars($_POST["foes"]);
+                        $joes = htmlspecialchars($_POST["joes"]);
+                    ?>
+                    <input type="number" min="0" id="toesInput" name="toes" class="numberInput" placeholder="0" value="<?php echo $toes; ?>"><br>
+                    <input type="number" min="0" id="noseInput" name="nose" class="numberInput" placeholder="0" value="<?php echo $nose; ?>"><br>
+                    <input type="number" min="0" id="foesInput" name="foes" class="numberInput" placeholder="0" value="<?php echo $foes; ?>"><br>
+                    <input type="number" min="0" id="joesInput" name="joes" class="numberInput" placeholder="0" value="<?php echo $joes; ?>">
                     <input type="submit" value="Checkout" id="checkoutButton">
                 </form>
             </div>

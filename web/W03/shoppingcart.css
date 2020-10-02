@@ -17,7 +17,7 @@ h1 {
     max-width: 25%;
 }
 
-#viewCartDiv {
+#viewCartDiv, #checkoutInfoDiv {
     padding: 20px 0px 20px 20px;
     display: flex;
     background-color: antiquewhite;
