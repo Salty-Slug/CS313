@@ -1,0 +1,55 @@
+h1 {
+    margin: 0;
+    padding: 20px 0px 20px 20px;
+    background-color: aliceblue;
+    max-width: 25%;
+}
+
+.numberInput {
+    margin-left: 20px;
+    max-width: 50%;
+}
+
+#formLabelDiv{
+    padding: 20px 0px 20px 20px;
+    display: flex;
+    background-color: antiquewhite;
+    max-width: 25%;
+}
+
+#viewCartDiv {
+    padding: 20px 0px 20px 20px;
+    display: flex;
+    background-color: antiquewhite;
+    max-width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+#formDiv, #labelDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+#labelDiv label {
+    padding-top: 6px;
+}
+
+#formDiv input {
+    margin-top: 4px;
+}
+
+#submitButton, #resetButton, #checkoutButton {
+    width: 85px;
+    margin-left: 20px;
+}
+
+@media (max-width: 600px) {
+    #formLabelDiv, h1 {
+        max-width: 100%;
+    }
+
+    #submitButton, #resetButton {
+        width: auto;
+    }
+}
