@@ -27,10 +27,10 @@
                         $foes = htmlspecialchars($_POST["foes"]);
                         $joes = htmlspecialchars($_POST["joes"]);
                     ?>
-                    <input type="hidden" name="" value="<?php echo $toes ?>">
-                    <input type="hidden" name="" value="<?php echo $nose ?>">
-                    <input type="hidden" name="" value="<?php echo $foes ?>">
-                    <input type="hidden" name="" value="<?php echo $joes ?>">
+                    <input type="hidden" name="" value="<?php echo $toes; ?>">
+                    <input type="hidden" name="" value="<?php echo $nose; ?>">
+                    <input type="hidden" name="" value="<?php echo $foes; ?>">
+                    <input type="hidden" name="" value="<?php echo $joes; ?>">
                     <input type="text" id="address1Input" name="address1"><br>
                     <input type="text" id="address2Input" name="address2"><br>
                     <input type="text" id="cityInput" name="city"><br>

@@ -17,7 +17,7 @@ h1 {
     max-width: 25%;
 }
 
-#viewCartDiv, #checkoutInfoDiv {
+#viewCartDiv, #checkoutInfoDiv, #confirmationInfoDiv {
     padding: 20px 0px 20px 20px;
     display: flex;
     background-color: antiquewhite;
@@ -46,7 +46,7 @@ h1 {
 }
 
 @media (max-width: 600px) {
-    #formLabelDiv, #checkoutInfoDiv, #viewCartDiv, h1 {
+    #formLabelDiv, #checkoutInfoDiv, #viewCartDiv, #confirmationInfoDiv, h1 {
         max-width: 100%;
     }
 
