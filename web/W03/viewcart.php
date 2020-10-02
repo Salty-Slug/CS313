@@ -20,7 +20,7 @@
             <div id="formDiv">
                 <form action="checkout.php">
                     <input type="number" min="0" id="toesInput" name="toes" class="numberInput" placeholder="0" value="<?php echo $_GET['toes']; ?>"><br>
-                    <input type="number" min="0" id="noseInput" name="nose" class="numberInput" placeholder="0"><br>
+                    <input type="number" min="0" id="noseInput" name="nose" class="numberInput" placeholder="0" value="<?php echo $_GET['nose']; ?>"><br>
                     <input type="number" min="0" id="foesInput" name="foes" class="numberInput" placeholder="0"><br>
                     <input type="number" min="0" id="joesInput" name="joes" class="numberInput" placeholder="0">
                     <input type="submit" value="Checkout" id="checkoutButton">
