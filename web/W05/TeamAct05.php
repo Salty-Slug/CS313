@@ -36,7 +36,10 @@
 
         $bookSearch = $_POST['bookSearch'];
 
-        foreach ($db->query('SELECT scriptureid, book, chapter, verse, content FROM scripture') as $row)
+        $stmt = $db->prepare('SELECT scriptureid, book, chapter, verse, content FROM scripture WHERE book=:bookSearch');
+        $stmt->bindValue(':bookSearch', $bookSearch, PDO::PARAM_STR);
+        $stmt->execute();
+        foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
         {
             if($bookSearch == $row['book'])
             {
