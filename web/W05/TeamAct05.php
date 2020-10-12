@@ -41,11 +41,8 @@
         $stmt->execute();
         foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
         {
-            if($bookSearch == $row['book'])
-            {
-                echo '<p><a href="ScriptureDetails.php?scriptureId='. $row['scriptureid'] . '"><b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b></a>';
-                echo '<p/>';
-            }
+            echo '<p><a href="ScriptureDetails.php?scriptureId='. $row['scriptureid'] . '"><b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b></a>';
+            echo '<p/>';
         }
     ?>
 </body>
