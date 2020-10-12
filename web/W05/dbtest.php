@@ -29,9 +29,9 @@
           die();
         }
 
-        foreach ($db->query('SELECT PlayerId ,Playername FROM Player') as $row)
+        foreach ($db->query('SELECT PlayerId, Playername FROM Player') as $row)
         {
-        echo 'Player: ' . $row['PlayerId'];
+        echo 'Player: ' . $row['PlayerId'] . '<br/>';
         echo ' Player Name: ' . $row['Playername'];
         echo '<br/>';
         }
