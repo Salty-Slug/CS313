@@ -31,9 +31,10 @@
 
         foreach ($db->query('SELECT PlayerId, Playername FROM Player') as $row)
         {
-        echo 'Player: ' . $row['PlayerId'] . '<br/>';
-        echo ' Player Name: ' . $row['Playername'];
-        echo '<br/>';
+            echo $row;
+            echo 'Player: ' . $row['PlayerId'] . '<br/>';
+            echo ' Player Name: ' . $row['Playername'];
+            echo '<br/>';
         }
     ?>
 </body>
