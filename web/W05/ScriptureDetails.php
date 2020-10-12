@@ -3,15 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Activity 05</title>
+    <title>Scripture Details</title>
 </head>
 <body>
-    <h1>Scripture Resources</h1>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-      Book Search: <input type="text" name="bookSearch">
-      <input type="submit" value="Submit"> 
-    </form>
-    <?php 
+<?php 
         try
         {
         $dbUrl = getenv('DATABASE_URL');
@@ -34,13 +29,11 @@
         die();
         }
 
-        $bookSearch = $_POST['bookSearch'];
-
         foreach ($db->query('SELECT scriptureid, book, chapter, verse, content FROM scripture') as $row)
         {
-            if($bookSearch == $row['book'])
+            if($_GET['scriptureId'] == $row['scriptureid'])
             {
-                echo '<p><a href="ScriptureDetails.php?scriptureId='. $row['scriptureid'] . '"><b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b></a>';
+                echo '<p><b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b> - "' . $row['content'] . '"';
                 echo '<p/>';
             }
         }
