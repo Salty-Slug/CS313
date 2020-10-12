@@ -7,6 +7,10 @@
 </head>
 <body>
     <h1>Scripture Resources</h1>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+      Book Search: <input type="text" name="bookSearch">
+      <input type="submit" value="Submit"> 
+    </form>
     <?php 
         try
         {
@@ -30,10 +34,15 @@
         die();
         }
 
+        $bookSearch = $_POST['bookSearch'];
+
         foreach ($db->query('SELECT book, chapter, verse, content FROM scripture') as $row)
         {
-            echo '<p><b>Book: ' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b> - "' . $row['content'] . '"';
-            echo '<p/>';
+            if($bookSearch == $row['book'])
+            {
+                echo '<p><b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b> - "' . $row['content'] . '"';
+                echo '<p/>';
+            }
         }
     ?>
 </body>
