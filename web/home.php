@@ -17,7 +17,7 @@
     </div>
     <div class="row" id="ProfileRow">
         <div id="ProfilePicDiv">
-            <img src="ProfilePic.jpg" id="ProfilePic">
+            <img src="assets/ProfilePic.jpg" id="ProfilePic">
         </div>
         <div id="IntroParagraph">
         <p>
