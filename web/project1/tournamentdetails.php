@@ -47,8 +47,8 @@
             foreach ($tourneyroundstmt->fetchAll(PDO::FETCH_ASSOC) as $row)
             {
                 
-                echo '<div><p><h2>' . $row['r.roundname'] . '</h2></p>' .
-                     '<p>Winner: ' . $row['p.playername'] . ' as ' . $row['c.charactername'] . 
+                echo '<div><p><h2>' . $row['roundname'] . '</h2></p>' .
+                     '<p>Winner: ' . $row['playername'] . ' as ' . $row['charactername'] . 
                      '<p>Other Players:</p><p>';
 
                     $playercharroundstmt = $db->prepare('SELECT r.roundid, c.charactername, p.playername
@@ -62,7 +62,7 @@
 
                     foreach ($playercharroundstmt->fetchAll(PDO::FETCH_ASSOC) as $pcrrow)
                     {
-                        echo '<p>' . $pcrrow['p.playername'] . ' as ' . $pcrrow['c.charactername'] . '</p>';
+                        echo '<p>' . $pcrrow['playername'] . ' as ' . $pcrrow['charactername'] . '</p>';
                     }
 
                 echo '</p></div>';

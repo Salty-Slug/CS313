@@ -31,7 +31,7 @@
         }
         foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
         {
-            echo '<p><a href="tournementdetails.php?tournamentid='. $row['tournamentid'] . '">' . $row['tournamentname'] . '</a>';
+            echo '<p><a href="tournamentdetails.php?tournamentid='. $row['tournamentid'] . '">' . $row['tournamentname'] . '</a>';
             echo '<p/>';
         }
     ?>
