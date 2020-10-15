@@ -11,8 +11,9 @@
 
         $selectedTournament = $_GET['tournamentid'];
         
-        $tournementstmt = $db->prepare('SELECT  tournamentid, tournamentname, gameplayed, winningplayer 
-                                        FROM tournament 
+        $tournementstmt = $db->prepare('SELECT  t.tournamentid, t.tournamentname, t.gameplayed, p.playername
+                                        FROM tournament t
+                                        JOIN player p ON p.playerid = t.winningplayer
                                         WHERE tournamentid=:selectedtournament');
         $tournementstmt->bindValue(':selectedtournament', $selectedTournament, PDO::PARAM_STR);
         $tournementstmt->execute();
@@ -24,7 +25,7 @@
 
             if(!empty($row['winningplayer']))
             {
-                echo '<div>Winner: ' . $row['winningplayer'] . '</div>';
+                echo '<div>Winner: ' . $row['playername'] . '</div>';
             }
             else
             {
