@@ -21,11 +21,11 @@
         foreach ($tournementstmt->fetchAll(PDO::FETCH_ASSOC) as $row)
         {
             echo '<h1>' . $row['tournamentname'] . '</h1>';
-            echo '<div> Game Played: ' . $row['gameplayed'] . '</div>'; 
+            echo '<div><p><b>Game Played: </b>' . $row['gameplayed'] . '</p>'; 
 
             if(!empty($row['playername']))
             {
-                echo '<div>Winner: ' . $row['playername'] . '</div>';
+                echo '<p><b>Winner: </b>' . $row['playername'] . '</p>';
             }
             else
             {
@@ -34,6 +34,7 @@
                         <input type="submit" value="Submit"> 
                       </form>';
             }
+            echo '</div>';
 
             // TODO: Loop through all the rounds, and then loop through to get the players and characters from each round
             $tourneyroundstmt = $db->prepare('SELECT  tr.tournamentid, tr.roundid, r.roundname, p.playername, charactername
