@@ -51,13 +51,13 @@
                      '<p>Winner: ' . $row['playername'] . ' as ' . $row['charactername'] . 
                      '<p>Other Players:</p><p>';
 
-                    $playercharroundstmt = $db->prepare('SELECT r.roundid, c.charactername, p.playername
+                    $playercharroundstmt = $db->prepare('SELECT r.roundid, p.playername, c.charactername
                                                          FROM playercharacterround pcr
                                                          JOIN round r ON r.roundid = pcr.roundid
                                                          JOIN player p ON p.playerid = pcr.playerid
                                                          JOIN character c ON c.characterid = pcr.characterid
                                                          WHERE pcr.roundid=:currentroundid');
-                    $playercharroundstmt->bindValue(':currentroundid', $row['tr.roundid'], PDO::PARAM_STR);
+                    $playercharroundstmt->bindValue(':currentroundid', $row['roundid'], PDO::PARAM_STR);
                     $playercharroundstmt->execute();
 
                     foreach ($playercharroundstmt->fetchAll(PDO::FETCH_ASSOC) as $pcrrow)
