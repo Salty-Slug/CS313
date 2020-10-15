@@ -23,7 +23,7 @@
             echo '<h1>' . $row['tournamentname'] . '</h1>';
             echo '<div> Game Played: ' . $row['gameplayed'] . '</div>'; 
 
-            if(!empty($row['winningplayer']))
+            if(!empty($row['playername']))
             {
                 echo '<div>Winner: ' . $row['playername'] . '</div>';
             }
