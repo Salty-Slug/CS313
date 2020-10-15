@@ -27,8 +27,7 @@ CREATE TABLE Tournament
   TournamentId SERIAL NOT NULL PRIMARY KEY,
   TournamentName varchar(60),
   GamePlayed varchar(60),
-  WinningPlayer int REFERENCES Player(PlayerId),
-  WinningCharacter int REFERENCES Character(CharacterId)
+  WinningPlayer int REFERENCES Player(PlayerId)
 );
 
 CREATE TABLE Round

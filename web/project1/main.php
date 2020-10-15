@@ -17,13 +17,16 @@
         $tournamentSearch = $_POST['tournamentSearch'];;
         if(!empty($tournamentSearch))
         {
-            $stmt = $db->prepare('SELECT  tournamentid, tournamentname FROM tournament WHERE tournamentname=:tournamentSearch');
+            $stmt = $db->prepare('SELECT  tournamentid, tournamentname 
+                                  FROM tournament 
+                                  WHERE tournamentname=:tournamentSearch');
             $stmt->bindValue(':tournamentSearch', $tournamentSearch, PDO::PARAM_STR);
             $stmt->execute();
         }
         else
         {
-            $stmt = $db->prepare('SELECT  tournamentid, tournamentname FROM tournament');
+            $stmt = $db->prepare('SELECT  tournamentid, tournamentname 
+                                  FROM tournament');
             $stmt->execute();
         }
         foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
