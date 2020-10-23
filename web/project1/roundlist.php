@@ -88,57 +88,60 @@
             //New PlayerCharacterRound for other players
             foreach($newRoundOtherPlayers as $playercharacter)
             {
-                //Get Player or make a new one
-                $playerstmt = $db->prepare('SELECT  playerid, playername
-                                            FROM player
-                                            WHERE playername=:player');
-                $playerstmt->bindValue(':player', $playercharacter[0], PDO::PARAM_STR);
-                $playerstmt->execute();
-
-                $playerarray = $playerstmt->fetch(PDO::FETCH_ASSOC);
-
-                if(empty($playerarray))
+                if(!empty($playercharacter[0]) && !empty($playercharacter[1]))
                 {
-                    $playerstmt = $db->prepare('INSERT INTO player(playername)
-                                                VALUES (:player)');
+                    //Get Player or make a new one
+                    $playerstmt = $db->prepare('SELECT  playerid, playername
+                                                FROM player
+                                                WHERE playername=:player');
                     $playerstmt->bindValue(':player', $playercharacter[0], PDO::PARAM_STR);
                     $playerstmt->execute();
 
-                    $newRoundPlayerId = $db->lastInsertId('player_playerid_seq');
-                }
-                else
-                {
-                    $newRoundPlayerId = $playerarray['playerid'];
-                }
+                    $playerarray = $playerstmt->fetch(PDO::FETCH_ASSOC);
 
-                //Get Character or make a new one
-                $characterstmt = $db->prepare('SELECT  characterid, charactername
-                                                FROM character
-                                                WHERE charactername=:charactername');
-                $characterstmt->bindValue(':charactername', $playercharacter[1], PDO::PARAM_STR);
-                $characterstmt->execute();
+                    if(empty($playerarray))
+                    {
+                        $playerstmt = $db->prepare('INSERT INTO player(playername)
+                                                    VALUES (:player)');
+                        $playerstmt->bindValue(':player', $playercharacter[0], PDO::PARAM_STR);
+                        $playerstmt->execute();
 
-                $characterarray = $characterstmt->fetch(PDO::FETCH_ASSOC);
+                        $newRoundPlayerId = $db->lastInsertId('player_playerid_seq');
+                    }
+                    else
+                    {
+                        $newRoundPlayerId = $playerarray['playerid'];
+                    }
 
-                if(empty($characterarray))
-                {
-                    $characterstmt = $db->prepare('INSERT INTO character(charactername)
-                                                   VALUES (:charactername)');
+                    //Get Character or make a new one
+                    $characterstmt = $db->prepare('SELECT  characterid, charactername
+                                                    FROM character
+                                                    WHERE charactername=:charactername');
                     $characterstmt->bindValue(':charactername', $playercharacter[1], PDO::PARAM_STR);
                     $characterstmt->execute();
 
-                    $newRoundCharacterId = $db->lastInsertId('character_characterid_seq');
-                }
-                else
-                {
-                    $newRoundCharacterId = $characterarray['characterid'];
-                }
+                    $characterarray = $characterstmt->fetch(PDO::FETCH_ASSOC);
 
-                $playercharacterroundstmt = $db->prepare('INSERT INTO playercharacterround(playerid, characterid, roundid)
-                                                      VALUES (:playerid, :characterid, :roundid)');
-                $playercharacterroundstmt->execute(array(':playerid' => $newRoundPlayerId, 
-                                                      ':characterid' => $newRoundCharacterId,
-                                                      ':roundid' => $newRoundId));
+                    if(empty($characterarray))
+                    {
+                        $characterstmt = $db->prepare('INSERT INTO character(charactername)
+                                                    VALUES (:charactername)');
+                        $characterstmt->bindValue(':charactername', $playercharacter[1], PDO::PARAM_STR);
+                        $characterstmt->execute();
+
+                        $newRoundCharacterId = $db->lastInsertId('character_characterid_seq');
+                    }
+                    else
+                    {
+                        $newRoundCharacterId = $characterarray['characterid'];
+                    }
+
+                    $playercharacterroundstmt = $db->prepare('INSERT INTO playercharacterround(playerid, characterid, roundid)
+                                                        VALUES (:playerid, :characterid, :roundid)');
+                    $playercharacterroundstmt->execute(array(':playerid' => $newRoundPlayerId, 
+                                                        ':characterid' => $newRoundCharacterId,
+                                                        ':roundid' => $newRoundId));
+                }
             }
         }
         catch(PDOException $ex)
