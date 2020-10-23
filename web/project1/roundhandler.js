@@ -21,8 +21,8 @@ function refreshRoundList() {
         if(otherPlayersChildren[i].classList.contains("playername"))
         {
             var player = new Array();
-            player.playername = otherPlayersChildren[i].value;
-            player.charactername = otherPlayersChildren[i+3].value;
+            player.push(otherPlayersChildren[i].value);
+            player.push(otherPlayersChildren[i+3].value);
             players.push(player);
         }
     }
