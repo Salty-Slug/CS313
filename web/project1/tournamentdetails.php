@@ -46,8 +46,8 @@
                 $winnerinsert = $db->prepare('UPDATE tournament
                                               SET winningplayer=:winner
                                               WHERE tournamentid=:tournamentid');
-                $winnerinsert->bindValue(':winner', $newWinnerId, PDO::PARAM_STR);
-                $winnerinsert->bindValue(':tournamentid', $selectedTournament, PDO::PARAM_STR);
+                $winnerinsert->bindValue(':winner', $newWinnerId);
+                $winnerinsert->bindValue(':tournamentid', $selectedTournament);
                 $winnerinsert->execute();
             }
             catch(PDOException $ex)
