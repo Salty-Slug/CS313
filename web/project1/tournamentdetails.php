@@ -29,14 +29,13 @@
             }
             else
             {
-                echo '<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                echo '<form action="echo htmlspecialchars($_SERVER["PHP_SELF"]);" method="post">
                         <label for="winner">Input a winner: </label><input type="text" name="winner" id="winner"><br>
                         <input type="submit" value="Submit"> 
                       </form>';
             }
             echo '</div>';
 
-            // TODO: Loop through all the rounds, and then loop through to get the players and characters from each round
             $tourneyroundstmt = $db->prepare('SELECT  tr.tournamentid, tr.roundid, r.roundname, p.playername, charactername
                                              FROM tournamentround tr 
                                              JOIN round r ON r.roundid = tr.roundid
