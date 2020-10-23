@@ -13,8 +13,6 @@
     $newRoundWinningCharacter = $_POST['roundwinningcharacter'];
     $newRoundOtherPlayers = json_decode($_POST['otherplayers']);
 
-    var_dump($newRoundOtherPlayers);
-
     $tourneyroundstmt = $db->prepare('SELECT  tr.tournamentid, tr.roundid, r.roundname, p.playername, charactername
                                     FROM tournamentround tr 
                                     JOIN round r ON r.roundid = tr.roundid

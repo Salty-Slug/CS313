@@ -61,7 +61,7 @@
                 Other Players: <br>
                 <div id="otherPlayers">
                 </div>
-                <button id="addPlayerButton" value="Add Player">
+                <button id="addPlayerButton">Add Player</button>
                 <input type="submit" value="Create" id="newRoundButton">
             </form>
         </div>
