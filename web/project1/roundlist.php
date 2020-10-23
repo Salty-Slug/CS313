@@ -24,7 +24,9 @@
             $playerstmt->bindValue(':winner', $newRoundWinningPlayer, PDO::PARAM_STR);
             $playerstmt->execute();
 
-            if(empty($playerstmt->fetchAll(PDO::FETCH_ASSOC)))
+            $winningplayerarray = $playerstmt->fetch(PDO::FETCH_ASSOC);
+
+            if(empty($winningplayerarray))
             {
                 $playerstmt = $db->prepare('INSERT INTO player(playername)
                                             VALUES (:winner)');
@@ -35,7 +37,7 @@
             }
             else
             {
-                $newRoundWinningPlayerId = ($playerstmt->fetch(PDO::FETCH_ASSOC))['playerid'];
+                $newRoundWinningPlayerId = $winningplayerarray['playerid'];
 
             }
 
@@ -46,7 +48,9 @@
             $characterstmt->bindValue(':winningchar', $newRoundWinningCharacter, PDO::PARAM_STR);
             $characterstmt->execute();
 
-            if(empty($characterstmt->fetchAll(PDO::FETCH_ASSOC)))
+            $winningcharacterarray = $characterstmt->fetch(PDO::FETCH_ASSOC);
+
+            if(empty($winningcharacterarray))
             {
                 $characterstmt = $db->prepare('INSERT INTO character(charactername)
                                             VALUES (:winningchar)');
@@ -57,7 +61,7 @@
             }
             else
             {
-                $newRoundWinningCharacterId = ($characterstmt->fetch(PDO::FETCH_ASSOC))['characterid'];
+                $newRoundWinningCharacterId = $winningcharacterarray['characterid'];
             }
 
             //New Round
@@ -91,7 +95,9 @@
                 $playerstmt->bindValue(':player', $playercharacter[0], PDO::PARAM_STR);
                 $playerstmt->execute();
 
-                if(empty($playerstmt->fetchAll(PDO::FETCH_ASSOC)))
+                $playerarray = $playerstmt->fetch(PDO::FETCH_ASSOC);
+
+                if(empty($playerarray))
                 {
                     $playerstmt = $db->prepare('INSERT INTO player(playername)
                                                 VALUES (:player)');
@@ -102,7 +108,7 @@
                 }
                 else
                 {
-                    $newRoundPlayerId = ($playerstmt->fetch(PDO::FETCH_ASSOC))['playerid'];
+                    $newRoundPlayerId = $playerarray['playerid'];
                 }
 
                 //Get Character or make a new one
@@ -112,7 +118,9 @@
                 $characterstmt->bindValue(':charactername', $playercharacter[1], PDO::PARAM_STR);
                 $characterstmt->execute();
 
-                if(empty($characterstmt->fetchAll(PDO::FETCH_ASSOC)))
+                $characterarray = $characterstmt->fetch(PDO::FETCH_ASSOC);
+
+                if(empty($characterarray))
                 {
                     $characterstmt = $db->prepare('INSERT INTO character(charactername)
                                                    VALUES (:charactername)');
@@ -123,7 +131,7 @@
                 }
                 else
                 {
-                    $newRoundCharacterId = ($characterstmt->fetch(PDO::FETCH_ASSOC))['characterid'];
+                    $newRoundCharacterId = $characterarray['characterid'];
                 }
 
                 $playercharacterroundstmt = $db->prepare('INSERT INTO playercharacterround(playerid, characterid, roundid)
