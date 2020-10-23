@@ -48,9 +48,7 @@ function refreshRoundList() {
 }
 
 function addPlayer() {
-    var otherPlayersDiv = document.getElementById("otherPlayers");
-
-    otherPlayersDiv.innerHTML += "<label>Player Name: </label>" +
+    document.getElementById("otherPlayers").innerHTML += "<label>Player Name: </label>" +
                                  "<input type=\"text\" class=\"playername\" name=\"player[]\"><br>" +
                                  "<label>Character Name: </label>" +
                                  "<input type=\"text\" class=\"charactername\" name=\"character[]\"><br>";
