@@ -24,8 +24,8 @@
             try
             {
                 $playerstmt = $db->prepare('SELECT  playerid, playername
-                                                FROM player
-                                                WHERE playername=:winner');
+                                            FROM player
+                                            WHERE playername=:winner');
                 $playerstmt->bindValue(':winner', $newWinner, PDO::PARAM_STR);
                 $playerstmt->execute();
 
@@ -40,8 +40,7 @@
                 }
                 else
                 {
-                    $newWinnerRow = $playerstmt->fetch(PDO::FETCH_ASSOC);
-                    $newWinnerId = $newWinnerRow['playerid'];
+                    $newWinnerId = ($playerstmt->fetch(PDO::FETCH_ASSOC))['playerid'];
                 }
 
                 $winnerinsert = $db->prepare('UPDATE tournament

@@ -63,7 +63,7 @@
             //New Round
             $roundstmt = $db->prepare('INSERT INTO round(roundname, winningplayer, winningcharacter)
                                        VALUES (:roundname, :winningplayer, :winningcharacter)');
-            $roundstmt->execute(array(':roundame' => $newRoundName, 
+            $roundstmt->execute(array(':roundname' => $newRoundName, 
                                       ':winningplayer' => $newRoundWinningPlayerId,
                                       ':winningcharacter' => $newRoundWinningCharacterId));
             $newRoundId = $db->lastInsertId('round_roundid_seq');
