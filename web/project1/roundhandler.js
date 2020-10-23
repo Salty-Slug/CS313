@@ -22,7 +22,7 @@ function refreshRoundList() {
         {
             $playername = otherPlayersChildren[i].value;
             $charactername = otherPlayersChildren[i+3].value;
-            players.push({playername: $playername}, {charactername: $charactername});
+            players.push({playername: $playername, charactername: $charactername});
         }
     }
 
