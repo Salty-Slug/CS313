@@ -48,10 +48,10 @@
             }
             else
             {
-                echo '<form action="htmlspecialchars($_SERVER["PHP_SELF"]);" method="post">
+                echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="post">
                         <label for="winner">Input a winner: </label><input type="text" name="winner" id="winner">
                         <input type="submit" value="Submit"> 
-                      </form>';
+                        </form>';
             }
             echo '</div>';
         }
