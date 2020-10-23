@@ -6,6 +6,9 @@
     <title>Tournament Details</title>
 </head>
 <body>
+    <div>
+        <a href="main.php">Back to Tournament List</a>
+    </div>
     <?php
         function console_log( $data ){
         echo '<script>';
