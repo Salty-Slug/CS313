@@ -22,6 +22,8 @@ function refreshTournamentList() {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("tournamentList").innerHTML = this.responseText;
+            document.getElementById("tournamentName").value = "";
+            document.getElementById("gameName").value = "";
         }
     };
     xhttp.open("POST", "tournamentlist.php", true);
