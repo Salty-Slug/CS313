@@ -15,7 +15,7 @@ function refreshRoundList() {
 
 
     var players = new Array();
-    var otherPlayersChildren = document.captureEventsgetElementById("otherPlayers").children;
+    var otherPlayersChildren = document.getElementById("otherPlayers").children;
     for (var i = 0; i < otherPlayersChildren.length; i++)
     {
         if(otherPlayersChildren[i].classList.contains("playername"))
