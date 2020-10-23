@@ -29,7 +29,8 @@
     }
     foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
     {
-        echo '<p><a href="tournamentdetails.php?tournamentid='. $row['tournamentid'] . '">' . $row['tournamentname'] . '</a>';
+        echo '<p><a href="tournamentdetails.php?tournamentid='. $row['tournamentid'] . '">' . $row['tournamentname'] . '</a>' . 
+             '<button id="delete' . $row['tournamentid'] . '" onclick="deleteTournament(' . $row['tournamentid'] . ')">Delete</button>';
         echo '<p/>';
     }
 ?>

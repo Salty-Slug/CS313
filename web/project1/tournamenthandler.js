@@ -29,3 +29,18 @@ function refreshTournamentList() {
     xhttp.open("POST", "tournamentlist.php", true);
     xhttp.send(formData);
 }
+
+function deleteTournament(tourneyId) {
+    var xhttp = new XMLHttpRequest();
+    var formData = new FormData();
+
+    formData.append("tournamentid", tourneyId);
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            refreshTournamentList();
+        }
+    };
+    xhttp.open("POST", "deletetournament.php", true);
+    xhttp.send(formData);
+}
