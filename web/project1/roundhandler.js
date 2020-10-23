@@ -15,7 +15,7 @@ function refreshRoundList() {
 
 
     var players = new Array();
-    var otherPlayersChildren = getElementById("otherPlayers").children;
+    var otherPlayersChildren = document.captureEventsgetElementById("otherPlayers").children;
     for (var i = 0; i < otherPlayersChildren.length; i++)
     {
         if(otherPlayersChildren[i].classList.contains("playername"))
@@ -29,7 +29,6 @@ function refreshRoundList() {
     formData.append("roundname", document.getElementById("roundName").value);
     formData.append("roundwinningplayer", document.getElementById("roundWinningPlayer").value);
     formData.append("roundwinningcharacter", document.getElementById("roundWinningCharacter").value);
-
 
     document.getElementById("roundList").innerHTML = "";
 
