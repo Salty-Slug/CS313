@@ -17,7 +17,7 @@
         console_log("initializing");
 
         $selectedTournament = $_GET['tournamentid'];
-        $newWinner = $_POST['winner'];
+        $newWinner = $_GET['winner'];
 
         if(!empty($newWinner))
         {
@@ -48,7 +48,8 @@
             }
             else
             {
-                echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '?tournamentid=' . $selectedTournament . '" method="post">
+                echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="GET">
+                        <input type="hidden" value="' . $selectedTournament . '" id="tournamentid" name="tournamentid">
                         <label for="winner">Input a winner: </label><input type="text" name="winner" id="winner">
                         <input type="submit" value="Submit"> 
                         </form>';
