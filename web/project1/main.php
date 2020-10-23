@@ -17,7 +17,7 @@
     <div>
         Make a new tournement:
         <form action="" method="post">
-            <label for="tournementName">Tournament Name: </label><input type="text" name="tournementName" id="tournementName"><br>
+            <label for="tournamentName">Tournament Name: </label><input type="text" name="tournamentName" id="tournamentName"><br>
             <label for="gameName">Game Name: </label><input type="text" name="gameName" id="gameName"><br>
             <input type="submit" value="Create" id="newTournamentButton">
         </form>
