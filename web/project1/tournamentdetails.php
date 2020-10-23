@@ -7,7 +7,14 @@
 </head>
 <body>
     <?php
+        function console_log( $data ){
+        echo '<script>';
+        echo 'console.log('. $data .')';
+        echo '</script>';
+        }
+
         require 'dbconnect.php';
+        console_log("initializing");
 
         $selectedTournament = $_GET['tournamentid'];
         
@@ -20,6 +27,7 @@
 
         foreach ($tournementstmt->fetchAll(PDO::FETCH_ASSOC) as $row)
         {
+            console_log("entering tournament display");
             echo '<h1>' . $row['tournamentname'] . '</h1>';
             echo '<div><p><b>Game Played: </b>' . $row['gameplayed'] . '</p>'; 
 
@@ -54,10 +62,12 @@
               echo 'Error!: ' . $ex->getMessage();
               die();
             }
+
             if(!empty($tourneyrounds))
             {
                 foreach ($tourneyrounds as $row)
                 {
+                    console_log("entering round display");
                     
                     echo '<div><p><h2>' . $row['roundname'] . '</h2></p>' .
                     '<p>Winner: ' . $row['playername'] . ' as ' . $row['charactername'] . 
