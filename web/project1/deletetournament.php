@@ -3,8 +3,13 @@
 
     $tournamentid = $_POST['tournamentid'];
     
-    $stmt = $db->prepare('DELETE FROM tournament 
+    $tourneyrounddelete = $db->prepare('DELETE FROM tournamentround 
+                                   WHERE tournamentid=:tournamentid');
+    $tourneyrounddelete->bindValue(':tournamentid', $tournamentid, PDO::PARAM_STR);
+    $tourneyrounddelete->execute();
+
+    $tourneydelete = $db->prepare('DELETE FROM tournament 
                           WHERE tournamentid=:tournamentid');
-    $stmt->bindValue(':tournamentid', $tournamentid, PDO::PARAM_STR);
-    $stmt->execute();
+    $tourneydelete->bindValue(':tournamentid', $tournamentid, PDO::PARAM_STR);
+    $tourneydelete->execute();
 ?>
