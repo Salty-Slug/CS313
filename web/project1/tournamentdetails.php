@@ -51,7 +51,7 @@
                 $winnerinsert->bindValue(':tournamentid', $selectedTournament, PDO::PARAM_STR);
                 $winnerinsert->execute();
 
-                header("Location: tournamentdetails?tournamentid=" . $selectedTournament);
+                header("Location: tournamentdetails.php?tournamentid=" . $selectedTournament);
             }
             catch(PDOException $ex)
             {
