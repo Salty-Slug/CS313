@@ -23,14 +23,35 @@
         {
             try
             {
+                $playerstmt = $db->prepare('SELECT  playerid, playername
+                                                FROM player
+                                                WHERE playername=:winner');
+                $playerstmt->bindValue(':winner', $newWinner, PDO::PARAM_STR);
+                $playerstmt->execute();
+
+                if(empty($playerstmt->fetchAll(PDO::FETCH_ASSOC)))
+                {
+                    $playerstmt = $db->prepare('INSERT INTO player(playername)
+                                                VALUES :winner');
+                    $playerstmt->bindValue(':winner', $newWinner, PDO::PARAM_STR);
+                    $playerstmt->execute();
+
+                    $newWinnerId = $db->lastInsertId('player_playerid_seq');
+                }
+                else
+                {
+                    $newWinnerId = $playerstmt->fetch(PDO::FETCH_ASSOC)['playerid'];
+
+                }
+
                 $winnerinsert = $db->prepare('UPDATE tournament
                                           SET winningplayer=:winner
                                           WHERE tournamentid=:tournamentid');
-                $winnerinsert->bindValue(':winner', $newWinner, PDO::PARAM_STR);
+                $winnerinsert->bindValue(':winner', $newWinnerId, PDO::PARAM_STR);
                 $winnerinsert->bindValue(':tournamentid', $selectedTournament, PDO::PARAM_STR);
                 $winnerinsert->execute();
             }
-            catch (PDOException $ex)
+            catch(PDOException $ex)
             {
               echo 'Error!: ' . $ex->getMessage() . '<br>';
             }
@@ -43,7 +64,7 @@
         $tournementstmt->bindValue(':selectedtournament', $selectedTournament, PDO::PARAM_STR);
         $tournementstmt->execute();
 
-        foreach ($tournementstmt->fetchAll(PDO::FETCH_ASSOC) as $row)
+        foreach($tournementstmt->fetchAll(PDO::FETCH_ASSOC) as $row)
         {
             console_log("entering tournament display");
             echo '<h1>' . $row['tournamentname'] . '</h1>';
