@@ -9,7 +9,7 @@
     <?php
         function console_log( $data ){
         echo '<script>';
-        echo 'console.log('. $data .')';
+        echo 'console.log("'. $data .'")';
         echo '</script>';
         }
 
