@@ -6,6 +6,8 @@
     }
 
     require 'dbconnect.php';
+    
+    $selectedTournament = $_GET['tournamentid'];
 
     $tourneyroundstmt = $db->prepare('SELECT  tr.tournamentid, tr.roundid, r.roundname, p.playername, charactername
                                     FROM tournamentround tr 
