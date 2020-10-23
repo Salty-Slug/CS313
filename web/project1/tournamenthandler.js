@@ -17,6 +17,8 @@ function refreshTournamentList() {
     formData.append("tournamentName", document.getElementById("tournamentName").value);
     formData.append("gameName", document.getElementById("gameName").value);
 
+    document.getElementById("tournamentList").innerHTML = "";
+
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("tournamentList").innerHTML = this.responseText;
