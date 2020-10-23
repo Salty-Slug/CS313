@@ -31,17 +31,17 @@
 
                 if(empty($playerstmt->fetchAll(PDO::FETCH_ASSOC)))
                 {
-                    $playerstmt = $db->prepare('INSERT INTO player(playername)
-                                                VALUES (:winner)');
-                    $playerstmt->bindValue(':winner', $newWinner, PDO::PARAM_STR);
-                    $playerstmt->execute();
+                    $playerinsertstmt = $db->prepare('INSERT INTO player(playername)
+                                                      VALUES (:winner)');
+                    $playerinsertstmt->bindValue(':winner', $newWinner, PDO::PARAM_STR);
+                    $playerinsertstmt->execute();
 
                     $newWinnerId = $db->lastInsertId('player_playerid_seq');
                 }
                 else
                 {
-                    $newWinnerId = $playerstmt->fetch(PDO::FETCH_ASSOC)['playerid'];
-
+                    $newWinnerRow = $playerstmt->fetch(PDO::FETCH_ASSOC);
+                    $newWinnerId = $newWinnerRow['playerid'];
                 }
 
                 $winnerinsert = $db->prepare('UPDATE tournament
@@ -50,6 +50,8 @@
                 $winnerinsert->bindValue(':winner', $newWinnerId, PDO::PARAM_STR);
                 $winnerinsert->bindValue(':tournamentid', $selectedTournament, PDO::PARAM_STR);
                 $winnerinsert->execute();
+
+                header("Location: tournamentdetails?tournamentid=" . $selectedTournament);
             }
             catch(PDOException $ex)
             {
