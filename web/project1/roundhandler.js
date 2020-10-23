@@ -20,7 +20,9 @@ function refreshRoundList() {
     {
         if(otherPlayersChildren[i].classList.contains("playername"))
         {
-            players.push(otherPlayersChildren[i].value, otherPlayersChildren[i+3].value);
+            $playername = otherPlayersChildren[i].value;
+            $charactername = otherPlayersChildren[i+3].value;
+            players.push({playername: $playername}, {charactername: $charactername});
         }
     }
 
