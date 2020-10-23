@@ -20,7 +20,7 @@ function refreshRoundList() {
     {
         if(otherPlayersChildren[i].classList.contains("playername"))
         {
-            players.push(otherPlayersChildren[i].value, otherPlayersChildren[i+2].value);
+            players.push(otherPlayersChildren[i].value, otherPlayersChildren[i+3].value);
         }
     }
 
