@@ -29,7 +29,10 @@
                 $playerstmt->bindValue(':winner', $newWinner, PDO::PARAM_STR);
                 $playerstmt->execute();
 
-                if(empty($playerstmt->fetchAll(PDO::FETCH_ASSOC)))
+                $newWinnerArray = $playerstmt->fetch(PDO::FETCH_ASSOC);
+                console_log($newWinnerArray);
+
+                if(empty($newWinnerArray))
                 {
                     $playerinsertstmt = $db->prepare('INSERT INTO player(playername)
                                                       VALUES (:winner)');
@@ -40,12 +43,6 @@
                 }
                 else
                 {
-                    $playerstmt = $db->prepare('SELECT  playerid, playername
-                                                FROM player
-                                                WHERE playername=:winner');
-                    $playerstmt->bindValue(':winner', $newWinner, PDO::PARAM_STR);
-                    $newWinnerArray = $playerstmt->fetch(PDO::FETCH_ASSOC);
-                    console_log($newWinnerArray);
                     $newWinnerId = $newWinnerArray['playerid'];
                 }
 
