@@ -20,7 +20,7 @@
         
         $tournementstmt = $db->prepare('SELECT  t.tournamentid, t.tournamentname, t.gameplayed, p.playername
                                         FROM tournament t
-                                        JOIN player p ON p.playerid = t.winningplayer
+                                        LEFT JOIN player p ON p.playerid = t.winningplayer
                                         WHERE tournamentid=:selectedtournament');
         $tournementstmt->bindValue(':selectedtournament', $selectedTournament, PDO::PARAM_STR);
         $tournementstmt->execute();
