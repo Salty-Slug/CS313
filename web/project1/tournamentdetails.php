@@ -21,12 +21,19 @@
 
         if(!empty($newWinner))
         {
-            // $winnerinsert = $db->prepare('UPDATE tournament
-            //                               SET winningplayer=:winner
-            //                               WHERE tournamentid=:tournamentid');
-            // $winnerinsert->bindValue(':winner', $newWinner, PDO::PARAM_STR);
-            // $winnerinsert->bindValue(':tournamentid', $selectedTournament, PDO::PARAM_STR);
-            // $winnerinsert->execute();
+            try
+            {
+                $winnerinsert = $db->prepare('UPDATE tournament
+                                          SET winningplayer=:winner
+                                          WHERE tournamentid=:tournamentid');
+                $winnerinsert->bindValue(':winner', $newWinner, PDO::PARAM_STR);
+                $winnerinsert->bindValue(':tournamentid', $selectedTournament, PDO::PARAM_STR);
+                $winnerinsert->execute();
+            }
+            catch (PDOException $ex)
+            {
+              echo 'Error!: ' . $ex->getMessage() . '<br>';
+            }
         }
         
         $tournementstmt = $db->prepare('SELECT  t.tournamentid, t.tournamentname, t.gameplayed, p.playername
