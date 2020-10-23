@@ -58,6 +58,7 @@
                 <label for="roundWinningCharacter">Winning Character: </label>
                 <input type="text" name="roundWinningCharacter" id="roundWinningCharacter"><br>
                 <input type="submit" value="Create" id="newRoundButton">
+                <input type="hidden" value="<?php echo $selectedTournament ?>" id="selectedTournament">
             </form>
         </div>
     </div>

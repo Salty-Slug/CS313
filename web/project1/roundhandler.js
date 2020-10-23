@@ -9,6 +9,7 @@ function refreshRoundList() {
     var xhttp = new XMLHttpRequest();
     var formData = new FormData();
 
+    formData.append("tournamentid", document.getElementById("selectedTournament").value);
     formData.append("roundName", document.getElementById("roundName").value);
     formData.append("roundWinningPlayer", document.getElementById("roundWinningPlayer").value);
     formData.append("roundWinningCharacter", document.getElementById("roundWinningCharacter").value);
