@@ -51,14 +51,18 @@
         <h2> Add a New Round: </h2>
         <div>
             <form action="" method="post">
+                <input type="hidden" value="<?php echo $selectedTournament ?>" id="selectedTournament">
                 <label for="roundName">Round Name: </label>
                 <input type="text" name="roundName" id="roundName"><br>
                 <label for="roundWinningPlayer">Winning Player: </label>
                 <input type="text" name="roundWinningPlayer" id="roundWinningPlayer"><br>
                 <label for="roundWinningCharacter">Winning Character: </label>
                 <input type="text" name="roundWinningCharacter" id="roundWinningCharacter"><br>
+                Other Players: <br>
+                <div id="otherPlayers">
+                </div>
+                <button id="addPlayerButton" value="Add Player">
                 <input type="submit" value="Create" id="newRoundButton">
-                <input type="hidden" value="<?php echo $selectedTournament ?>" id="selectedTournament">
             </form>
         </div>
     </div>

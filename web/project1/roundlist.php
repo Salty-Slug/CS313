@@ -8,6 +8,12 @@
     require 'dbconnect.php';
     
     $selectedTournament = $_POST['tournamentid'];
+    $newRoundName = $_POST['roundname'];
+    $newRoundWinningPlayer = $_POST['roundwinningplayer'];
+    $newRoundWinningCharacter = $_POST['roundwinningcharacter'];
+    $newRoundOtherPlayers = json_decode($_POST['otherplayers']);
+
+    var_dump($newRoundOtherPlayers);
 
     $tourneyroundstmt = $db->prepare('SELECT  tr.tournamentid, tr.roundid, r.roundname, p.playername, charactername
                                     FROM tournamentround tr 
