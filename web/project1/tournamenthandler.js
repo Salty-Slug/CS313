@@ -1,3 +1,5 @@
+refreshTournamentList();
+
 document.getElementById("newTournamentButton").addEventListener("click", function(event) {
     event.preventDefault();
     refreshTournamentList();
