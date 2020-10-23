@@ -32,7 +32,7 @@
                 if(empty($playerstmt->fetchAll(PDO::FETCH_ASSOC)))
                 {
                     $playerstmt = $db->prepare('INSERT INTO player(playername)
-                                                VALUES :winner');
+                                                VALUES (:winner)');
                     $playerstmt->bindValue(':winner', $newWinner, PDO::PARAM_STR);
                     $playerstmt->execute();
 
