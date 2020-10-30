@@ -23,7 +23,7 @@ form {
 }
 
 .otherPlayerName {
-    padding-left: 22px;
+    padding-right: 22px;
 }
 
 #tournamentList {
@@ -32,15 +32,15 @@ form {
 }
 
 #gameNameLabel {
-    padding-left: 39px;
+    padding-right: 39px;
 }
 
 #winningPlayerLabel {
-    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #roundNameLabel {
-    padding-left: 35px;
+    padding-right: 35px;
 }
 
 @media (max-width: 600px)
@@ -49,11 +49,15 @@ form {
         text-align: left;
     }
 
+    .otherPlayerName {
+        padding-right: 21px;
+    }
+
     #winningPlayerLabel {
-        padding-left: 22px;
+        padding-right: 21px;
     }
     
     #roundNameLabel {
-        padding-left: 36px;
+        padding-right: 37px;
     }
 }
