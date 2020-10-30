@@ -7,6 +7,10 @@ h1 {
     background-color: cornflowerblue;
 }
 
+form {
+    background-color: lightseagreen;
+}
+
 .rounddiv {
     background-color: deepskyblue;
 }
@@ -16,7 +20,7 @@ h1 {
 }
 
 #gameNameLabel {
-    padding-left: 42px;
+    padding-left: 39px;
 }
 
 #winningPlayerLabel {

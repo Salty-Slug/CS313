@@ -53,5 +53,5 @@ function addPlayer() {
     document.getElementById("otherPlayers").innerHTML += "<label class=\"otherPlayerName\">Player Name: </label>" +
                                  "<input type=\"text\" class=\"playername\" name=\"player[]\"><br>" +
                                  "<label>Character Name: </label>" +
-                                 "<input type=\"text\" class=\"charactername\" name=\"character[]\"><br>";
+                                 "<input type=\"text\" class=\"charactername\" name=\"character[]\"><br><br>";
 }
