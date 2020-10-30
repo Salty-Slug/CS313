@@ -1,6 +1,6 @@
 body {
     background-color: #5cdb95;
-    color: #05386b;
+    color: #EDF5E1;
     text-align: center;
 }
 
@@ -24,7 +24,7 @@ form {
 }
 
 #tournamentList {
-    background-color: rgba(100, 148, 237, 0.527);
+    background-color: #8ee4af;
 }
 
 #gameNameLabel {
