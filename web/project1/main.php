@@ -16,7 +16,7 @@
 
     </div>
     <div>
-        <h1> Make a new tournement: <h1>
+        <h1> Make a New Tournement: </h1>
         <form action="" method="post">
             <label for="tournamentName">Tournament Name: </label><input type="text" name="tournamentName" id="tournamentName"><br>
             <label for="gameName" id="gameNameLabel">Game Name: </label><input type="text" name="gameName" id="gameName"><br>
