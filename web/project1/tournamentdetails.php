@@ -98,9 +98,9 @@
         <div>
             <form action="" method="post">
                 <input type="hidden" value="<?php echo $selectedTournament ?>" id="selectedTournament">
-                <label for="roundName">Round Name: </label>
+                <label for="roundName" id="roundNameLabel">Round Name: </label>
                 <input type="text" name="roundName" id="roundName"><br>
-                <label for="roundWinningPlayer">Winning Player: </label>
+                <label for="roundWinningPlayer" id="winningPlayerLabel">Winning Player: </label>
                 <input type="text" name="roundWinningPlayer" id="roundWinningPlayer"><br>
                 <label for="roundWinningCharacter">Winning Character: </label>
                 <input type="text" name="roundWinningCharacter" id="roundWinningCharacter"><br>

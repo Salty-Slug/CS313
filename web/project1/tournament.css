@@ -1,5 +1,6 @@
 body {
     background-color: aliceblue;
+    text-align: center;
 }
 
 h1 {
@@ -8,4 +9,20 @@ h1 {
 
 .rounddiv {
     background-color: deepskyblue;
+}
+
+.otherPlayerName {
+    padding-left: 22px;
+}
+
+#gameNameLabel {
+    padding-left: 42px;
+}
+
+#winningPlayerLabel {
+    padding-left: 20px;
+}
+
+#roundNameLabel {
+    padding-left: 35px;
 }
