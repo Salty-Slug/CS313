@@ -94,7 +94,7 @@
     <div id="roundList">
     </div>
     <div>
-        <h2> Add a New Round: </h2>
+        <h1> Add a New Round: </h1>
         <div>
             <form action="" method="post">
                 <input type="hidden" value="<?php echo $selectedTournament ?>" id="selectedTournament">
