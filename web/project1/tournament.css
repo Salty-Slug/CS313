@@ -48,4 +48,12 @@ form {
     body {
         text-align: left;
     }
+
+    #winningPlayerLabel {
+        padding-left: 22px;
+    }
+    
+    #roundNameLabel {
+        padding-left: 36px;
+    }
 }
