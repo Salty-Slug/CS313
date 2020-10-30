@@ -38,7 +38,6 @@
             else
             {
                 $newRoundWinningPlayerId = $winningplayerarray['playerid'];
-
             }
 
             //Get Character or make a new one
@@ -151,11 +150,11 @@
     }
 
     $tourneyroundstmt = $db->prepare('SELECT  tr.tournamentid, tr.roundid, r.roundname, p.playername, charactername
-                                    FROM tournamentround tr 
-                                    JOIN round r ON r.roundid = tr.roundid
-                                    JOIN player p ON p.playerid = r.winningplayer
-                                    JOIN character c ON c.characterid = r.winningcharacter
-                                    WHERE tr.tournamentid=:selectedtournament');
+                                      FROM tournamentround tr 
+                                      JOIN round r ON r.roundid = tr.roundid
+                                      JOIN player p ON p.playerid = r.winningplayer
+                                      JOIN character c ON c.characterid = r.winningcharacter
+                                      WHERE tr.tournamentid=:selectedtournament');
     $tourneyroundstmt->bindValue(':selectedtournament', $selectedTournament, PDO::PARAM_STR);
     $tourneyroundstmt->execute();
     $tourneyrounds = $tourneyroundstmt->fetchAll(PDO::FETCH_ASSOC);
@@ -166,7 +165,7 @@
         {
             console_log("entering round display");
             
-            echo '<div><p><h2>' . $row['roundname'] . '</h2></p>' .
+            echo '<div class="rounddiv"><p><h2>' . $row['roundname'] . '</h2></p>' .
             '<p>Winner: ' . $row['playername'] . ' as ' . $row['charactername'] . 
             '<p>All Players:</p><p>';
             
