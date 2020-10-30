@@ -22,6 +22,10 @@ form {
     padding-left: 22px;
 }
 
+#tournamentList {
+    background-color: rgba(100, 148, 237, 0.527);
+}
+
 #gameNameLabel {
     padding-left: 39px;
 }
