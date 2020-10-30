@@ -17,7 +17,7 @@
     {
         $stmt = $db->prepare('SELECT  tournamentid, tournamentname 
                                 FROM tournament 
-                                WHERE tournamentname LIKE :tournamentSearch');
+                                WHERE LOWER(tournamentname) LIKE LOWER(:tournamentSearch)');
         $stmt->bindValue(':tournamentSearch', '%' . $tournamentSearch . '%', PDO::PARAM_STR);
         $stmt->execute();
     }
