@@ -42,3 +42,10 @@ form {
 #roundNameLabel {
     padding-left: 35px;
 }
+
+@media (max-width: 600px)
+{
+    body {
+        text-align: left;
+    }
+}
