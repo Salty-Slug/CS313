@@ -17,8 +17,8 @@
     {
         $stmt = $db->prepare('SELECT  tournamentid, tournamentname 
                                 FROM tournament 
-                                WHERE tournamentname LIKE \'%:tournamentSearch%\'');
-        $stmt->bindValue(':tournamentSearch', $tournamentSearch, PDO::PARAM_STR);
+                                WHERE tournamentname LIKE :tournamentSearch');
+        $stmt->bindValue(':tournamentSearch', '%' . $tournamentSearch . '%', PDO::PARAM_STR);
         $stmt->execute();
     }
     else
